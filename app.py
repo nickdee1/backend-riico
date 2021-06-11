@@ -75,7 +75,7 @@ def orders_get_order():
 
 @app.route('/orders/create', methods=['POST'])
 def orders_create_order():
-	resp = orders.add_order(request)
+	resp = orders.add_order(request.json)
 	if resp is None:
 		return __get_error__("Error occurred", "Error occurred"), 400
 	return 200
