@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import jsonify
 from flask import request
+import controller.orders as orders
 
 app = Flask(__name__)
 
@@ -70,6 +71,14 @@ def orders_get_order():
 			return el
 
 	return __get_error__("Not found", "order not found"), 404
+
+
+@app.route('/orders/create', methods=['POST'])
+def orders_create_order():
+	resp = orders.add_order(request)
+	if resp is None:
+		return __get_error__("Error occurred", "Error occurred"), 400
+	return 200
 
 
 def __get_error__(name, description):
