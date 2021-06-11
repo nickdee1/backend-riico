@@ -14,7 +14,7 @@ class ModelFurniture:
 
         __tablename__ = 'component'
 
-        row_id = Column('component_id', \
+        row_id = Column('id', \
                         INTEGER(unsigned=True), \
                         primary_key=True, \
                         autoincrement=True, \

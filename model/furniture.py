@@ -16,7 +16,7 @@ class ModelFurniture:
 
         __tablename__ = 'furniture'
 
-        row_id = Column('furniture_id', \
+        row_id = Column('id', \
                         INTEGER(unsigned=True), \
                         primary_key=True, \
                         autoincrement=True, \
