@@ -18,6 +18,7 @@ orders = [{
 
 
 def add_order(data):
+    print(data)
     try:
         order = {
             'id': data['id'],
@@ -28,3 +29,7 @@ def add_order(data):
         return 200
     except:
         return None
+
+
+def get_all_orders():
+    return orders
