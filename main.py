@@ -1,6 +1,10 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+
 import os
 
-from utils import conn, cursor, application
+from utils import conn, cursor, app
 from routes import *
 
 
@@ -10,4 +14,4 @@ with open(os.path.join("db", "create.sql")) as f:
 
 
 if __name__ == '__main__':
-	application.run(debug=True, host="0.0.0.0")
+	app.run(debug=True, host="0.0.0.0")

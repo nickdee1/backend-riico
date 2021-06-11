@@ -1,18 +1,15 @@
-from flask import Flask
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
 
 from flask import request, redirect, render_template, session, url_for, jsonify
-
 from utils import app, api, cursor
 
 
-app = Flask(__name__)
-app.config["DEBUG"] = True
-
-
-# @app.route("/session", methods=['GET'])
-# def session_view():
-#     return jsonify({"country_code": session["country_code"],
-#                     "phone_number": session["phone_number"]})
+@app.route("/session", methods=['GET'])
+def session_view():
+    return jsonify({"country_code": session["country_code"],
+                    "phone_number": session["phone_number"]})
 
 
 @app.route("/phone_verification", methods=["GET", "POST"])
