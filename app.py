@@ -1,6 +1,5 @@
 from flask import Flask
-from flask import jsonify
-from flask import request
+from flask import request, jsonify
 import controller.orders as orders
 
 app = Flask(__name__)
@@ -45,7 +44,8 @@ orders = [{
 
 @app.route('/')
 def hello_world():
-	return 'Hello World!'
+	response = {'item': "dwd"}
+	return response
 
 
 @app.route('/furniture/all')
