@@ -110,7 +110,7 @@ def put_item_to_cart():
 @app.route('/sms', methods=['GET'])
 def send_sms():
     account_sid = "ACc5f3165686eb763a773a6489522c6272"
-    auth_token = "5ddf6b22748c323b77c1373065cc03b7"
+    auth_token = "721622dcadda3279738362eebe634d53"
     client = Client(account_sid, auth_token)
     number = random.randint(1000, 9999)
 
