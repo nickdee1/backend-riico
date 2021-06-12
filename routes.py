@@ -83,9 +83,10 @@ def detail_furniture(furniture_id):
 			'location': furniture[4],
 			'material': furniture[5],
 			'width': furniture[6],
-			'height': furniture[7]}
+			'height': furniture[7],
+			'components': data}
 
-	ret = jsonify({'furniture': furniture_data, 'components': data})
+	ret = jsonify(furniture_data)
 
 	logging.info('detail_furniture(furniture_id=%s) -> ret=%s', (furniture_id, ret))
 	return ret
