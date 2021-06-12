@@ -22,6 +22,7 @@ CREATE TABLE component (
 	furniture_id INTEGER,
 	name TEXT UNIQUE NOT NULL,
 	price INTEGER NOT NULL,
+	article varchar(64) not null,
 	FOREIGN KEY(furniture_id) REFERENCES furniture(id)
 );
 
@@ -73,11 +74,11 @@ insert into Furniture (id, category, name, color, location, material, width, hei
 
 
 -- Insert into component
-insert into Component (id, furniture_id, name, price) values (1, 1, 'Flurazepam Hydrochloride', 1);
-insert into Component (id, furniture_id, name, price) values (2, 1, 'SILICEA', 2);
-insert into Component (id, furniture_id, name, price) values (3, 1, 'ARSENIC TRIOXIDE', 3);
-insert into Component (id, furniture_id, name, price) values (4, 2, 'Methylphenidate Hydrochloride', 4);
-insert into Component (id, furniture_id, name, price) values (5, 2, 'GRANISETRON HYDROCHLORIDE', 5);
+insert into Component (id, furniture_id, name, price, article) values (1, 1, 'Flurazepam Hydrochloride', 1, '502.400.31');
+insert into Component (id, furniture_id, name, price, article) values (2, 1, 'SILICEA', 2, '502.400.31');
+insert into Component (id, furniture_id, name, price, article) values (3, 1, 'ARSENIC TRIOXIDE', 3, '502.400.31');
+insert into Component (id, furniture_id, name, price, article) values (4, 2, 'Methylphenidate Hydrochloride', 4, '502.400.31');
+insert into Component (id, furniture_id, name, price, article) values (5, 2, 'GRANISETRON HYDROCHLORIDE', 5, '502.400.31');
 
 
 insert into cart (total_price) values (0.0);
