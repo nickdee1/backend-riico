@@ -115,6 +115,9 @@ def search_furniture():
 	return ret
 
 
+
+
+
 @app.route("/components/<component_id>", methods=['GET'])
 def detail_component(component_id):
 	"""detail of a component"""
