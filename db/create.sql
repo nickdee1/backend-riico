@@ -35,10 +35,11 @@ CREATE TABLE cart (
 CREATE TABLE cart_item (
     id serial PRIMARY KEY,
     price float,
+    quantity integer,
     cart_id INTEGER,
     item_id INTEGER,
     FOREIGN KEY(cart_id) REFERENCES cart(id),
-    FOREIGN KEY(item_id) REFERENCES component(id),
+    FOREIGN KEY(item_id) REFERENCES component(id)
 );
 
 
