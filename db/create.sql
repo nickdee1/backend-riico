@@ -27,23 +27,23 @@ CREATE TABLE component (
 
 
 CREATE TABLE cart (
-    id INTEGER PRIMARY KEY,
+    id serial PRIMARY KEY NOT NULL,
     total_price float
 );
 
 
 CREATE TABLE cart_item (
-    id INTEGER PRIMARY KEY,
+    id serial PRIMARY KEY,
     price float,
     cart_id INTEGER,
     item_id INTEGER,
     FOREIGN KEY(cart_id) REFERENCES cart(id),
-    FOREIGN KEY(item_id) REFERENCES component(id)
+    FOREIGN KEY(item_id) REFERENCES component(id),
 );
 
 
 CREATE TABLE payment_order (
-    id INTEGER PRIMARY KEY,
+    id serial PRIMARY KEY,
     total_price float,
     name varchar(64),
     surname varchar(64),
@@ -53,7 +53,7 @@ CREATE TABLE payment_order (
 );
 
 CREATE TABLE order_item (
-    id INTEGER PRIMARY KEY,
+    id serial PRIMARY KEY,
     price float,
     order_id INTEGER,
     cart_item_id INTEGER,
@@ -77,3 +77,6 @@ insert into Component (id, furniture_id, name, price) values (2, 1, 'SILICEA', 2
 insert into Component (id, furniture_id, name, price) values (3, 1, 'ARSENIC TRIOXIDE', 3);
 insert into Component (id, furniture_id, name, price) values (4, 2, 'Methylphenidate Hydrochloride', 4);
 insert into Component (id, furniture_id, name, price) values (5, 2, 'GRANISETRON HYDROCHLORIDE', 5);
+
+
+insert into cart (total_price) values (0.0);
