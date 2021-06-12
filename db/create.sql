@@ -69,22 +69,18 @@ CREATE TABLE order_item (
 
 -- Insert into furniture
 insert into Furniture (id, category, name, color, location, material, width, height, article) values (1, 'chair', 'Omeprazole', 'Purple', 'Beloyarskiy', 'Vinyl', 1, 1, '502.400.31');
-insert into Furniture (id, category, name, color, location, material, width, height, article) values (2, 'chair', 'Salicylic Acid', 'Red', 'Sakaidechō', 'Aluminum', 2, 2, '502.400.31');
-insert into Furniture (id, category, name, color, location, material, width, height, article) values (3, 'chair', 'DEXTROMETHORPHAN', 'Blue', 'Tapada das Mercês', 'Steel', 3, 3, '502.400.31');
-insert into Furniture (id, category, name, color, location, material, width, height, article) values (4, 'chair', 'TRAMETES', 'Teal', 'Hässelby', 'Aluminum', 4, 4, '502.400.31');
-insert into Furniture (id, category, name, color, location, material, width, height, article) values (5, 'chair', 'CEFPODOXIME', 'Khaki', 'Claveria', 'Rubber', 5, 5, '502.400.31');
+insert into Furniture (id, category, name, color, location, material, width, height, article) values (2, 'chair', 'Salicylic Acid', 'Red', 'Sakaidechō', 'Aluminum', 2, 2, '502.400.32');
+insert into Furniture (id, category, name, color, location, material, width, height, article) values (3, 'chair', 'DEXTROMETHORPHAN', 'Blue', 'Tapada das Mercês', 'Steel', 3, 3, '502.400.33');
+insert into Furniture (id, category, name, color, location, material, width, height, article) values (4, 'chair', 'TRAMETES', 'Teal', 'Hässelby', 'Aluminum', 4, 4, '502.400.34');
+insert into Furniture (id, category, name, color, location, material, width, height, article) values (5, 'chair', 'CEFPODOXIME', 'Khaki', 'Claveria', 'Rubber', 5, 5, '502.400.35');
 
 
 -- Insert into component
 insert into Component (id, furniture_id, name, price, article, dimension_eu, dimension_us) values (1, 1, 'Flurazepam Hydrochloride', 1, '502.400.31', '0.09 cm (L) x 0.06 cm (W) x 0.0 cm (D)', '0.03 in (L) x 0.02 in (W) x 0.0 in (D)');
-insert into Component (id, furniture_id, name, price, article, dimension_eu, dimension_us) values (2, 1, 'SILICEA', 2, '502.400.31', '0.09 cm (L) x 0.06 cm (W) x 0.0 cm (D)', '0.03 in (L) x 0.02 in (W) x 0.0 in (D)');
-insert into Component (id, furniture_id, name, price, article, dimension_eu, dimension_us) values (3, 1, 'ARSENIC TRIOXIDE', 3, '502.400.31', '0.09 cm (L) x 0.06 cm (W) x 0.0 cm (D)', '0.03 in (L) x 0.02 in (W) x 0.0 in (D)');
-insert into Component (id, furniture_id, name, price, article, dimension_eu, dimension_us) values (4, 2, 'Methylphenidate Hydrochloride', 4, '502.400.31', '0.09 cm (L) x 0.06 cm (W) x 0.0 cm (D)', '0.03 in (L) x 0.02 in (W) x 0.0 in (D)');
-insert into Component (id, furniture_id, name, price, article, dimension_eu, dimension_us) values (5, 2, 'GRANISETRON HYDROCHLORIDE', 5, '502.400.31', '0.09 cm (L) x 0.06 cm (W) x 0.0 cm (D)', '0.03 in (L) x 0.02 in (W) x 0.0 in (D)');
+insert into Component (id, furniture_id, name, price, article, dimension_eu, dimension_us) values (2, 1, 'SILICEA', 2, '502.400.32', '0.09 cm (L) x 0.06 cm (W) x 0.0 cm (D)', '0.03 in (L) x 0.02 in (W) x 0.0 in (D)');
+insert into Component (id, furniture_id, name, price, article, dimension_eu, dimension_us) values (3, 1, 'ARSENIC TRIOXIDE', 3, '502.400.33', '0.09 cm (L) x 0.06 cm (W) x 0.0 cm (D)', '0.03 in (L) x 0.02 in (W) x 0.0 in (D)');
+insert into Component (id, furniture_id, name, price, article, dimension_eu, dimension_us) values (4, 2, 'Methylphenidate Hydrochloride', 4, '502.400.34', '0.09 cm (L) x 0.06 cm (W) x 0.0 cm (D)', '0.03 in (L) x 0.02 in (W) x 0.0 in (D)');
+insert into Component (id, furniture_id, name, price, article, dimension_eu, dimension_us) values (5, 2, 'GRANISETRON HYDROCHLORIDE', 5, '502.400.35', '0.09 cm (L) x 0.06 cm (W) x 0.0 cm (D)', '0.03 in (L) x 0.02 in (W) x 0.0 in (D)');
 
 
-<<<<<<< HEAD
-insert into cart (total_price) values (0.0);
-=======
 insert into cart (id, total_price) values (1, 0.0);
->>>>>>> 971b489c707d9ad6b0651f431ee3d68cd13a31cf

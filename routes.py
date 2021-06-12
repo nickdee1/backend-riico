@@ -227,9 +227,32 @@ def search_components():
     for component in components:
         dicts.append({ \
             'id': component[0],
-            'name': component[1],
-            'price': component[2]})
+            'name': component[2],
+            'price': component[3],
+            'article': component[4],
+            'dimension_eu': component[5],
+            'dimension_us': component[6]})
     ret = jsonify({"components": dicts})
 
     logging.info('search_components() -> ret=%s', ret)
+    return ret
+
+
+@app.route('/find_article/<article>', methods=['GET'])
+def find_data_by_article(article):
+
+    cursor.execute(f"SELECT * FROM component WHERE article={article}")
+    components = cursor.fetchall()
+    dicts = []
+    for component in components:
+        dicts.append({ \
+            'id': component[0],
+            'name': component[2],
+            'price': component[3],
+            'article': component[4],
+            'dimension_eu': component[5],
+            'dimension_us': component[6]})
+    ret = jsonify({"components": dicts})
+
+    logging.info('find(article=%s) -> ret=%s', (article, ret))
     return ret
