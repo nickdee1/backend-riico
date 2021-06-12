@@ -79,4 +79,4 @@ insert into Component (id, furniture_id, name, price) values (4, 2, 'Methylpheni
 insert into Component (id, furniture_id, name, price) values (5, 2, 'GRANISETRON HYDROCHLORIDE', 5);
 
 
-insert into cart (total_price) values (0.0);
+insert into cart (id, total_price) values (1, 0.0);
