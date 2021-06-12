@@ -26,12 +26,9 @@ SQLAlchemy==1.4.18
 twilio==6.59.1
 urllib3==1.26.5
 Werkzeug==2.0.1
-<<<<<<< HEAD
 
 Flask_Cors==3.0.9
 authy==2.2.6
 Flask_Session==0.3.2
 flask_marshmallow==0.14.0
 psycopg2-binary==2.8.6
-=======
->>>>>>> 971b489c707d9ad6b0651f431ee3d68cd13a31cf
