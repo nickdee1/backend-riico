@@ -61,34 +61,31 @@ def verify():
 def detail_furniture(furniture_id):
 	"""detail of a furniture"""
 
-	# cursor.execute(f"-- SELECT * FROM component WHERE furniture_id = {furniture_id}")
-	# components = cursor.fetchall()
-	# data = []
-	# for component in components:
-	# 	data.append({ \
-	# 		'id': component[0],
-	# 		'name': component[2],
-	# 		'price': component[3]})
+	cursor.execute(f"SELECT * FROM component WHERE furniture_id = {furniture_id}")
+	components = cursor.fetchall()
+	data = []
+	for component in components:
+		data.append({ \
+			'id': component[0],
+			'name': component[2],
+			'price': component[3]})
 
-	cursor.execute(f"SELECT * FROM furniture WHERE furniture_id = {furniture_id}")
+	cursor.execute(f"SELECT * FROM furniture WHERE id = {furniture_id}")
 	furniture = cursor.fetchone()
 	if not furniture:
 		response = {'message': 'furniture does not exist'}
 		return jsonify(response), 404
-
 	furniture_data = { \
 			'id': furniture[0],
-			'component_id': furniture[1],
-			'category': furniture[2],
-			'name': furniture[3],
-			'color': furniture[4],
-			'location': furniture[5],
-			'material': furniture[6],
-			'width': furniture[7],
-			'height': furniture[8]}
+			'category': furniture[1],
+			'name': furniture[2],
+			'color': furniture[3],
+			'location': furniture[4],
+			'material': furniture[5],
+			'width': furniture[6],
+			'height': furniture[7]}
 
-	# ret = jsonify({'furniture': furniture_data, 'components': data})
-	ret = jsonify(furniture_data)
+	ret = jsonify({'furniture': furniture_data, 'components': data})
 
 	logging.info('detail_furniture(furniture_id=%s) -> ret=%s', (furniture_id, ret))
 	return ret
@@ -104,14 +101,13 @@ def search_furniture():
 	for furniture in furnitures:
 		data.append({ \
 			'id': furniture[0],
-			'component_id': furniture[1],
-			'category': furniture[2],
-			'name': furniture[3],
-			'color': furniture[4],
-			'location': furniture[5],
-			'material': furniture[6],
-			'width': furniture[7],
-			'height': furniture[8]})
+			'category': furniture[1],
+			'name': furniture[2],
+			'color': furniture[3],
+			'location': furniture[4],
+			'material': furniture[5],
+			'width': furniture[6],
+			'height': furniture[7]})
 	ret = jsonify({"furnitures": data})
 
 	logging.info('search_furniture() -> ret=%s', ret)
@@ -125,8 +121,7 @@ def detail_component(component_id):
 	cursor.execute(f"SELECT * FROM component WHERE id = {component_id}")
 	component = cursor.fetchone()
 	if not component:
-		response = {\
-			'message': 'component does not exist'}
+		response = {'message': 'component does not exist'}
 		return jsonify(response), 404
 	result = {\
 		'id': component[0],
