@@ -6,7 +6,6 @@ import logging
 from flask import request, redirect, render_template, session, url_for, jsonify
 from utils import app, api, cursor, conn
 
-
 @app.route("/session", methods=['GET'])
 def session_view():
     return jsonify({"country_code": session["country_code"],

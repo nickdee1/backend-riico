@@ -28,7 +28,7 @@ CREATE TABLE component (
 
 
 CREATE TABLE cart (
-    id serial PRIMARY KEY NOT NULL,
+    id serial PRIMARY KEY,
     total_price float
 );
 
