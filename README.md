@@ -14,7 +14,6 @@ Let's install and run the application step-by-step.
 
 ### 1. Pull the repository
 
-Backend:
 ```
 git clone git@github.com:nickdee1/backend-riico.git <project_directory>
 ```
