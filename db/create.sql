@@ -21,6 +21,7 @@ CREATE TABLE furniture (
 CREATE TABLE component (
 	id INTEGER PRIMARY KEY,
 	furniture_id INTEGER,
+	product_id INTEGER,
 	name TEXT UNIQUE NOT NULL,
 	price INTEGER NOT NULL,
 	article varchar(64) not null,
@@ -76,11 +77,17 @@ insert into Furniture (id, category, name, color, location, material, width, hei
 
 
 -- Insert into component
-insert into Component (id, furniture_id, name, price, article, dimension_eu, dimension_us) values (1, 1, 'Flurazepam Hydrochloride', 1, '502.400.31', '0.09 cm (L) x 0.06 cm (W) x 0.0 cm (D)', '0.03 in (L) x 0.02 in (W) x 0.0 in (D)');
-insert into Component (id, furniture_id, name, price, article, dimension_eu, dimension_us) values (2, 1, 'SILICEA', 2, '502.400.32', '0.09 cm (L) x 0.06 cm (W) x 0.0 cm (D)', '0.03 in (L) x 0.02 in (W) x 0.0 in (D)');
-insert into Component (id, furniture_id, name, price, article, dimension_eu, dimension_us) values (3, 1, 'ARSENIC TRIOXIDE', 3, '502.400.33', '0.09 cm (L) x 0.06 cm (W) x 0.0 cm (D)', '0.03 in (L) x 0.02 in (W) x 0.0 in (D)');
-insert into Component (id, furniture_id, name, price, article, dimension_eu, dimension_us) values (4, 2, 'Methylphenidate Hydrochloride', 4, '502.400.34', '0.09 cm (L) x 0.06 cm (W) x 0.0 cm (D)', '0.03 in (L) x 0.02 in (W) x 0.0 in (D)');
-insert into Component (id, furniture_id, name, price, article, dimension_eu, dimension_us) values (5, 2, 'GRANISETRON HYDROCHLORIDE', 5, '502.400.35', '0.09 cm (L) x 0.06 cm (W) x 0.0 cm (D)', '0.03 in (L) x 0.02 in (W) x 0.0 in (D)');
+insert into Component (id, furniture_id, product_id, name, price, article, dimension_eu, dimension_us) values (1, 1, 100001, 'Allen Key', 3.91, '502.400.31', '0.09 cm (L) x 0.06 cm (W) x 0.0 cm (D)', '0.03 in (L) x 0.02 in (W) x 0.0 in (D)');
+insert into Component (id, furniture_id, product_id, name, price, article, dimension_eu, dimension_us) values (2, 1, 115988, 'Black Base Leveler', 3.41, '502.400.32', '0.09 cm (L) x 0.06 cm (W) x 0.0 cm (D)', '0.03 in (L) x 0.02 in (W) x 0.0 in (D)');
+insert into Component (id, furniture_id, product_id, name, price, article, dimension_eu, dimension_us) values (3, 1, 1106300, 'Cam Lock Nut', 1.21, '502.400.33', '0.09 cm (L) x 0.06 cm (W) x 0.0 cm (D)', '0.03 in (L) x 0.02 in (W) x 0.0 in (D)');
+insert into Component (id, furniture_id, product_id, name, price, article, dimension_eu, dimension_us) values (4, 1, 118331, 'Cam Lock Screw', 7.81, '502.400.34', '0.09 cm (L) x 0.06 cm (W) x 0.0 cm (D)', '0.03 in (L) x 0.02 in (W) x 0.0 in (D)');
+insert into Component (id, furniture_id, product_id, name, price, article, dimension_eu, dimension_us) values (5, 1, 103091, 'Drawel rail', 4.61, '502.400.35', '0.09 cm (L) x 0.06 cm (W) x 0.0 cm (D)', '0.03 in (L) x 0.02 in (W) x 0.0 in (D)');
+
+insert into Component (id, furniture_id, product_id, name, price, article, dimension_eu, dimension_us) values (6, 1, 100365, 'Cam Lock Nut Angle Pin', 2.73, '502.400.36', '0.09 cm (L) x 0.06 cm (W) x 0.0 cm (D)', '0.03 in (L) x 0.02 in (W) x 0.0 in (D)');
+insert into Component (id, furniture_id, product_id, name, price, article, dimension_eu, dimension_us) values (7, 1, 113281, 'Drawer Front', 4.91, '502.400.37', '0.09 cm (L) x 0.06 cm (W) x 0.0 cm (D)', '0.03 in (L) x 0.02 in (W) x 0.0 in (D)');
+insert into Component (id, furniture_id, product_id, name, price, article, dimension_eu, dimension_us) values (8, 1, 117793, 'Rod Clip White', 3.62, '502.400.38', '0.09 cm (L) x 0.06 cm (W) x 0.0 cm (D)', '0.03 in (L) x 0.02 in (W) x 0.0 in (D)');
+insert into Component (id, furniture_id, product_id, name, price, article, dimension_eu, dimension_us) values (9, 1, 110525, 'Self Pins', 4.23, '502.400.39', '0.09 cm (L) x 0.06 cm (W) x 0.0 cm (D)', '0.03 in (L) x 0.02 in (W) x 0.0 in (D)');
+insert into Component (id, furniture_id, product_id, name, price, article, dimension_eu, dimension_us) values (10, 1, 101350, 'Wood Dowel', 4.56, '502.400.31', '0.09 cm (L) x 0.06 cm (W) x 0.0 cm (D)', '0.03 in (L) x 0.02 in (W) x 0.0 in (D)');
 
 
 insert into cart (id, total_price) values (1, 0.0);

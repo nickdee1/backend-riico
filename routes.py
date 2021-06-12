@@ -66,10 +66,11 @@ def detail_furniture(furniture_id):
     for component in components:
         data.append({ \
             'id': component[0],
-            'name': component[2],
-            'price': component[3],
-            'dimension_eu': component[5],
-            'dimension_us': component[6]
+            'product_id': component[2],
+            'name': component[3],
+            'price': component[4],
+            'dimension_eu': component[6],
+            'dimension_us': component[7]
         })
 
     cursor.execute(f"SELECT * FROM furniture WHERE id = {furniture_id}")
@@ -193,7 +194,7 @@ def __get_all_cart_items__(cart_id):
 def __add_to_cart__(id, quantity, cart_id):
     component = __get_component__(id)
     cursor.execute(
-        f"INSERT INTO cart_item (price, quantity, cart_id, item_id) VALUES ({component[3]}, {quantity}, {cart_id}, {component[0]})")
+        f"INSERT INTO cart_item (price, quantity, cart_id, item_id) VALUES ({component[4]}, {quantity}, {cart_id}, {component[0]})")
     conn.commit()
 
 
@@ -207,9 +208,13 @@ def detail_component(component_id):
         response = {'message': 'component does not exist'}
         return jsonify(response), 404
     result = { \
-        'id': component[0],
-        'name': component[1],
-        'price': component[2]}
+            'id': component[0],
+            'product_id': component[2],
+            'name': component[3],
+            'price': component[4],
+            'article': component[5],
+            'dimension_eu': component[6],
+            'dimension_us': component[7]}
     ret = jsonify(result)
 
     logging.info('detail_component(component_id=%s) -> ret=%s', (component_id, ret))
@@ -227,11 +232,12 @@ def search_components():
     for component in components:
         dicts.append({ \
             'id': component[0],
-            'name': component[2],
-            'price': component[3],
-            'article': component[4],
-            'dimension_eu': component[5],
-            'dimension_us': component[6]})
+            'product_id': component[2],
+            'name': component[3],
+            'price': component[4],
+            'article': component[5],
+            'dimension_eu': component[6],
+            'dimension_us': component[7]})
     ret = jsonify({"components": dicts})
 
     logging.info('search_components() -> ret=%s', ret)
@@ -246,12 +252,13 @@ def find_data_by_article(article):
     dicts = []
     for component in components:
         dicts.append({ \
-            'id': component[0],
-            'name': component[2],
-            'price': component[3],
-            'article': component[4],
-            'dimension_eu': component[5],
-            'dimension_us': component[6]})
+                'id': component[0],
+                'product_id': component[2],
+                'name': component[3],
+                'price': component[4],
+                'article': component[5],
+                'dimension_eu': component[6],
+                'dimension_us': component[7]})
     ret = jsonify({"components": dicts})
 
     logging.info('find(article=%s) -> ret=%s', (article, ret))
