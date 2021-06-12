@@ -4,7 +4,7 @@
 import logging
 
 from flask import request, redirect, render_template, session, url_for, jsonify
-from utils import app, api, cursor
+from utils import app, api, cursor, conn
 
 
 @app.route("/session", methods=['GET'])
@@ -113,6 +113,54 @@ def search_furniture():
 
 	logging.info('search_furniture() -> ret=%s', ret)
 	return ret
+
+
+@app.route("/cart/create", methods=["POST"])
+def create_cart():
+	cursor.execute("insert into cart (total_price) values (0.0) returning id")
+	cart_id = cursor.fetchone()
+	conn.commit()
+	return jsonify({"id": cart_id[0]})
+
+@app.route("/cart/cart_item_decrease/<cart_item_id>", methods=["GET", "POST"])
+def decrease_cart_item_count(cart_item_id):
+	pass
+
+@app.route("/cart_item_increase/<cart_item_id>", methods=["GET", "POST"])
+def increase_cart_item_count(cart_item_id):
+	cursor.execute(f"SELECT * FROM cart WHERE id={cart_item_id}")
+	cart = cursor.fetchall()
+	if not cart:
+		response = {'message': 'cart does not exist'}
+		return jsonify(response), 404
+
+
+@app.route("/cart/<cart_id>/add/<component_id>", methods=["PUT"])
+def put_to_cart(cart_id, component_id):
+	cursor.execute(f"SELECT * FROM cart WHERE id={cart_id}")
+	cart = cursor.fetchall()
+	if not cart:
+		response = {'message': 'cart does not exist'}
+		return jsonify(response), 404
+	gotten_cart = cart[0]
+	cursor.execute(f"SELECT * FROM component WHERE id={component_id}")
+	component = cursor.fetchall()
+	if not component:
+		response = {'message': 'component does not exist'}
+		return jsonify(response), 404
+	gotten_component = component[0]
+	cursor.execute(f"SELECT * FROM cart_item WHERE cart_id={cart_id} AND item_id={component_id}")
+	existing_cart_items = cursor.fetchall()
+	if not existing_cart_items:
+		cursor.execute(f"insert into cart_item (price, cart_id, item_id) values ({gotten_component[1]}, {gotten_cart[0]}, {gotten_component[0]})")
+		cursor.execute(f"update cart set total_price = {gotten_cart[1] + gotten_component[1]}")
+		conn.commit()
+		return redirect(url_for('increase_cart_item_count'))
+	else:
+		return redirect(url_for('decrease_cart_item_count'))
+		print("")
+	return ""
+
 
 
 @app.route("/components/<component_id>", methods=['GET'])

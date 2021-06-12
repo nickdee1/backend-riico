@@ -9,7 +9,7 @@ from routes import *
 
 
 with open(os.path.join("db", "create.sql")) as f:
-	cursor.executescript(f.read())
+	cursor.execute(f.read())
 	conn.commit()
 
 
