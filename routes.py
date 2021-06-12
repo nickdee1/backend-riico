@@ -67,7 +67,10 @@ def detail_furniture(furniture_id):
         data.append({ \
             'id': component[0],
             'name': component[2],
-            'price': component[3]})
+            'price': component[3],
+            'dimension_eu': component[5],
+            'dimension_us': component[6]
+        })
 
     cursor.execute(f"SELECT * FROM furniture WHERE id = {furniture_id}")
     furniture = cursor.fetchone()
@@ -83,6 +86,7 @@ def detail_furniture(furniture_id):
         'material': furniture[5],
         'width': furniture[6],
         'height': furniture[7],
+        'article': furniture[8],
         'components': data}
 
     ret = jsonify(furniture_data)
@@ -107,7 +111,8 @@ def search_furniture():
             'location': furniture[4],
             'material': furniture[5],
             'width': furniture[6],
-            'height': furniture[7]})
+            'height': furniture[7],
+            'article': furniture[8]})
     ret = jsonify({"furnitures": data})
 
     logging.info('search_furniture() -> ret=%s', ret)
