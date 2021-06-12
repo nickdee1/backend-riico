@@ -1,4 +1,4 @@
-# Ricco - 5. Longer life for furniture
+# Ricco - 5. Longer life for furniture - BACKEND PART
 
 Team Ricco at GreenHack hackathon would love to introduce you its lovely child - App for buying Spare Parts. Ricco app is a mobile platform that helps people to buy spare parts for their furniture or sell it back to IKEA.
 ## Project Description:
