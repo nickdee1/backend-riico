@@ -21,7 +21,8 @@ git clone git@github.com:nickdee1/backend-riico.git <project_directory>
 Where <project_directory> is your desired folder to clone the repository into.
 
 ### 2. Running of the backend server on your machine
-### NOTE: You should not do it, because of our server is hosted on Heroku. Just go to Frontend part and use it :)
+### NOTE: You should not do it, because of our server is hosted on Heroku.
+### Just go to Frontend part and use it :)
 
 The project's backend is written in Python with the usage of Flask web framework and an SQLite database.
 To install these, make sure that you have Python3.6 or higher and pip installed on your machine.
